@@ -12,6 +12,10 @@ public class EmployeeController {
     private List<Employee>list=new ArrayList<>();
     private EmployeeService myService;
 
+    public EmployeeController(EmployeeService myService) {
+        this.myService = myService;
+    }
+
     @PostMapping("/addEmployee")
     public List<Employee>newEmployee(@Valid @RequestBody Employee employee)
     {
