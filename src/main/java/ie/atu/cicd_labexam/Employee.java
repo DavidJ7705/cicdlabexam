@@ -7,6 +7,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -16,13 +17,14 @@ import java.util.Date;
 @NoArgsConstructor
 public class Employee {
 
-    /*
+
     @Pattern(regexp = "", message = "Emp-xxxx")
     private String employeeCode;
-    */
+
     @NotBlank(message = "Name is required")
     private String name;
 
+    @UniqueElements
     @Email(message = "Invalid format")
     private String email;
 
@@ -32,8 +34,8 @@ public class Employee {
     @PositiveOrZero(message="Salary must be greater than 0")
     private double salary;
 
-    /*
+
     @DateTimeFormat
     private Date dateOfJoining;
-    */
+
 }
