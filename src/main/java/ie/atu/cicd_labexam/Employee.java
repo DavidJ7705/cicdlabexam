@@ -16,9 +16,10 @@ import java.util.Date;
 @NoArgsConstructor
 public class Employee {
 
+    /*
     @Pattern(regexp = "", message = "Emp-xxxx")
     private String employeeCode;
-
+    */
     @NotBlank(message = "Name is required")
     private String name;
 
@@ -31,7 +32,8 @@ public class Employee {
     @PositiveOrZero(message="Salary must be greater than 0")
     private double salary;
 
+    /*
     @DateTimeFormat
     private Date dateOfJoining;
-
+    */
 }
