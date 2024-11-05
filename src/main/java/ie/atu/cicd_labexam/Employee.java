@@ -1,9 +1,6 @@
 package ie.atu.cicd_labexam;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,14 +15,14 @@ import java.util.Date;
 public class Employee {
 
 
-    @Pattern(regexp = "", message = "Emp-xxxx")
+    @Pattern(regexp = "EMP-XXXX", message = "Must be in format EMP-XXXX ")
     private String employeeCode;
 
     @NotBlank(message = "Name is required")
     private String name;
 
-    @UniqueElements
-    @Email(message = "Invalid format")
+    /*@UniqueElements*/
+    @Email(message = "Invalid Email format")
     private String email;
 
     @NotBlank(message = "Position is required")
@@ -35,7 +32,7 @@ public class Employee {
     private double salary;
 
 
-    @DateTimeFormat
+    @PastOrPresent(message = "Must be today or earlier and Must be in format DD/MM/YYYY")
     private Date dateOfJoining;
 
 }
